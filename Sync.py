@@ -1,8 +1,9 @@
-import sys
+import threading
 import os
 
 path = os.path.dirname(os.path.abspath('__file__'))
 path = path.replace(" ", "\ ")
+
 os.system("rm -rf " + path + "/Server/app/interface")
 os.system("ln -s " + path + "/Client/src/main/scala/interface/ " + path + "/Server/app/interface")
 os.system("rm " + path + "/Server/public/javascripts/lola-fastopt.js")

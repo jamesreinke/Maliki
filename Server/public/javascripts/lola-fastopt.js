@@ -1,1 +1,1 @@
-/Users/jamesreinke/Spells/Current Projects/Simba/Client/target/scala-2.11/lola-fastopt.js
+/Users/jamesreinke/Spells/Current Projects/Maliki/Client/target/scala-2.11/lola-fastopt.js
