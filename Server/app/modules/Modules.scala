@@ -35,18 +35,6 @@ object Table {
 	}
 
 }
-/* 
-	An example of a class implementation with mutable functions.
-*/
-class Column(width: Int) {
-
-	val node = el("div", attributes = Map("class" -> s"col-md-${width}"))
-
-	def addItem(neu: Node): Unit = {
-		node.items = node.items :+ neu
-	}
-
-}
 
 /*
 	A grid of tiles consisting of other nodes.
@@ -57,54 +45,6 @@ object Tiles {
 		val tiles = nodes map { x => el("div", attributes = Map("class" -> s"col-md-6"), style = Map("padding" -> "10px")) }
 		el("div", attributes = Map("class" -> s"row"), items = tiles)
 	}
-}
-
-
-abstract class Nodable {
-
-	val render: Node
-
-}
-
-
-object Tableu {
-
-	def apply(h: List[String], b: List[List[String]]): Node = {
-		(new Tableu(h, b)).render
-	}
-	// do we want this type of unapply method?  Method we should check the syntax of the parser
-	// 		To decide if this is truly a good design change.  What about Monads?  Do we understand those?
-	def apply(n: Node): Tableu = {
-		new Tableu(List(), List())
-	}
-
-}
-/*
-	Another example of a class style implementation.
-*/
-class Tableu(h: List[String], b: List[List[String]]) {
-
-	val head = el("thead", items = h map { x => el("th", text = x) })
-	val body = el("tbody", items = b map { x => (new Row(x)).render })
-
-	val render = el("table", attributes = Map("class"->"table"), items = List(head, body))
-
-	def filter(s: String, table: Tableu): Unit = {
-		for(row <- table.body.items){
-			row.style += ("display" -> "none")
-			for(col <- row.items) if(col.text contains s) row.style += ("display" -> "")
-		}
-	} 
-
-	def addRow(table: Node, items: List[String]): Unit = table.items = table.items :+ (new Row(items)).render
-
-	class Row(cols: List[String]) extends Nodable {
-
-		val render = el("tr", items = (for(col <- cols) yield el("td", text = col)).toList)
-
-	}
-
-
 }
 
 
