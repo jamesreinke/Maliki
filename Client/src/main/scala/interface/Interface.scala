@@ -21,8 +21,7 @@ sealed case class Node(
 	var text: String,
 	var value: String,
 	var items: List[Node],
-	var javascript: String,
-	var id: String) 
+	var id: String)
 
 object el {
 	def apply(
@@ -32,9 +31,8 @@ object el {
 		text: String = "",
 		value: String = "",
 		items: List[Node] = List(),
-		javascript: String = "",
 		id: String = Lola.assign): Node = {
-		new Node(tag, attributes, style, text, value, items, javascript, id)
+		new Node(tag, attributes, style, text, value, items, id)
 	}
 }
 
@@ -175,3 +173,10 @@ object SetText {
 	}
 	sealed case class SetText(n: Node, s: String) extends Command
 }
+object If {
+	def apply(b: Boolean, c: Command) = {
+		new If(b: Boolean, c: Command)
+	}
+	sealed case class If(b: Boolean, c: Command) extends Command
+}
+

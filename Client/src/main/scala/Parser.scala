@@ -24,7 +24,7 @@ object Parse {
 				doing so many node lookups for a single Ajax request.
 		*/
 		n.value = n.jqSelect.value().toString
-		new interface.Node(n.tag, n.attributes, n.style, n.text, n.value, n.items map { x => Parse(x) }, n.javascript, n.id)
+		new interface.Node(n.tag, n.attributes, n.style, n.text, n.value, n.items map { x => Parse(x) }, n.id)
 	}
 
 	/*
@@ -32,7 +32,7 @@ object Parse {
 	*/
 	def apply(n: interface.Node): js.Node = lola.js.Lola.getById(n.id) match {
 		case Some(node) => node
-		case None => new js.Node(n.tag, n.attributes, n.style, n.text, n.value, n.items map { x => Parse(x) }, n.javascript, n.id)
+		case None => new js.Node(n.tag, n.attributes, n.style, n.text, n.value, n.items map { x => Parse(x) }, n.id)
 	}
 
 
