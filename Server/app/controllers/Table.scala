@@ -50,7 +50,7 @@ class Table extends Controller {
 	def modifyTable = Action {
 		implicit request => {
 			val (input, table) = Extract[Node,Node](request)
-			Table.filter(input.value, table)  // Mutates table given input.value
+			Table.filter(table, input.value)  // Mutates table given input.value
 			Send(Update(table))
 		}
 	}

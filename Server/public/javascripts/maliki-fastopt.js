@@ -1,1 +1,1 @@
-/Users/jamesreinke/Spells/Current Projects/Maliki/Client/target/scala-2.11/maliki-fastopt.js
+/Users/james/Spells/Maliki/Client/target/scala-2.11/maliki-fastopt.js

@@ -2,15 +2,13 @@ package modules
 
 import lola.interface._
 
-abstract class Nodable {
+abstract class Wrapper {
 
 	val node: Node
 
 	def addItem(neu: Node): Unit = {}
 
 }
-
-
 
 /*
 	Another example of a class style implementation.
@@ -31,11 +29,10 @@ class Tableu(h: List[String], b: List[List[String]]) {
 
 	def addRow(table: Node, items: List[String]): Unit = table.items = table.items :+ (new Row(items)).node
 
-	class Row(cols: List[String]) extends Nodable {
+	class Row(cols: List[String]) extends Wrapper {
 
 		val node = el("tr", items = (for(col <- cols) yield el("td", text = col)).toList)
 
 	}
-
 
 }

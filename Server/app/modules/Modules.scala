@@ -16,7 +16,7 @@ object Table {
 	/*
 		Hide rows of a table, whose columns do not contain the string s.
 	*/
-	def filter(s: String, table: Node): Unit = {
+	def filter(table: Node, s: String): Unit = {
 		for(tbody <- table.items.tail) {
 			for(row <- tbody.items) {
 				row.style += ("display" -> "none")
